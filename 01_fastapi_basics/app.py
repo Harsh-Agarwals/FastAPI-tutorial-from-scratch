@@ -54,7 +54,21 @@ class BookOut(BookIn):
 
 # Pretend database. In real life this would be Postgres + a repository layer.
 _BOOKS: dict[int, BookOut] = {}
-_NEXT_ID = 1
+_NEXT_ID = 3
+
+_BOOKS[1] = BookOut(
+    id=1,
+    title="The Hobbit",
+    author="J.R.R. Tolkien",
+    year=1937
+)
+
+_BOOKS[2] = BookOut(
+    id=2,
+    title="1984",
+    author="George Orwell",
+    year=1949
+)
 
 
 # --------------------------------------------------------------------------
