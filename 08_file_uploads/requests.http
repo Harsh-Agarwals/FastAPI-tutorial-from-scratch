@@ -1,0 +1,8 @@
+@host = http://localhost:8000
+
+### List uploads (dev-only inspector)
+GET {{host}}/uploads
+
+### Upload a PDF
+# In VS Code REST Client, use the Postman or curl instructions in README.md
+# (multipart uploads in .http files differ across editors).

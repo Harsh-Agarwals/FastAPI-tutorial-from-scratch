@@ -1,0 +1,41 @@
+@host = http://localhost:8000
+
+### Create a user (camelCase input works due to aliases)
+POST {{host}}/users
+Content-Type: application/json
+
+{
+  "email": "ada@example.com",
+  "fullName": "Ada Lovelace",
+  "age": 36,
+  "password": "hunter12"
+}
+
+### Bad password (no digit) → 422
+POST {{host}}/users
+Content-Type: application/json
+
+{
+  "email": "x@y.com",
+  "fullName": "X",
+  "age": 25,
+  "password": "nodigits"
+}
+
+### Date range — invalid (end <= start) → 422
+POST {{host}}/date-range
+Content-Type: application/json
+
+{"start": "2025-01-02T00:00:00Z", "end": "2025-01-01T00:00:00Z"}
+
+### Order with card payment
+POST {{host}}/orders
+Content-Type: application/json
+
+{"amount_cents": 1500, "payment": {"kind": "card", "last4": "4242"}}
+
+### Order with bank payment
+POST {{host}}/orders
+Content-Type: application/json
+
+{"amount_cents": 1500, "payment": {"kind": "bank", "iban": "DE89370400440532013000"}}

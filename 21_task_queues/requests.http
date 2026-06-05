@@ -1,0 +1,16 @@
+@host = http://localhost:8000
+
+### Submit a job
+POST {{host}}/jobs
+Content-Type: application/json
+
+{"text": "summarize this article"}
+
+### Check depth
+GET {{host}}/queue/depth
+
+### Inspect a specific job
+GET {{host}}/jobs/REPLACE_WITH_ID
+
+### Replay DLQ
+POST {{host}}/queue/replay-dlq

@@ -1,0 +1,43 @@
+# Sample requests for Chapter 01.
+# Works with the VS Code "REST Client" extension or JetBrains HTTP Client.
+# Postman: import this file as a collection.
+
+@host = http://localhost:8000
+
+### Health check
+GET {{host}}/
+
+### Create a book
+POST {{host}}/books
+Content-Type: application/json
+
+{
+  "title": "Designing Data-Intensive Applications",
+  "author": "Kleppmann",
+  "year": 2017
+}
+
+### List books
+GET {{host}}/books?limit=10
+
+### List by author
+GET {{host}}/books?author=Kleppmann
+
+### Get one book
+GET {{host}}/books/1
+
+### 404 example
+GET {{host}}/books/9999
+
+### Validation error — year too low (422)
+POST {{host}}/books
+Content-Type: application/json
+
+{
+  "title": "Cave paintings",
+  "author": "Unknown",
+  "year": 100
+}
+
+### Delete (204)
+DELETE {{host}}/books/1

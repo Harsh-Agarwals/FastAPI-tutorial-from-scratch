@@ -1,0 +1,34 @@
+@host = http://localhost:8000
+
+### Service-to-service — without key (401)
+GET {{host}}/ping/service
+
+### Service-to-service — with key
+GET {{host}}/ping/service
+X-API-Key: local-dev-api-key
+
+### Login (OAuth2 password flow)
+# @name login
+POST {{host}}/token
+Content-Type: application/x-www-form-urlencoded
+
+username=ada&password=password123
+
+### Me (uses token from previous request)
+GET {{host}}/me
+Authorization: Bearer {{login.response.body.access_token}}
+
+### Scoped endpoint
+GET {{host}}/admin/write
+Authorization: Bearer {{login.response.body.access_token}}
+
+### Login as guest (read-only)
+# @name guest
+POST {{host}}/token
+Content-Type: application/x-www-form-urlencoded
+
+username=guest&password=guest
+
+### Guest tries admin/write → 403
+GET {{host}}/admin/write
+Authorization: Bearer {{guest.response.body.access_token}}

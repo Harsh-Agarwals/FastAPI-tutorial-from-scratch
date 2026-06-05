@@ -1,0 +1,10 @@
+@host = http://localhost:8000
+
+### Streaming text — use curl -N to disable buffering
+GET {{host}}/stream/text
+
+### SSE
+GET {{host}}/stream/sse?prompt=hello
+
+### NDJSON
+GET {{host}}/stream/ndjson?prompt=hello

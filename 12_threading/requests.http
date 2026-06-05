@@ -1,0 +1,13 @@
+@host = http://localhost:8000
+
+GET {{host}}/io/sequential/10
+###
+GET {{host}}/io/threaded/10
+###
+GET {{host}}/io/threaded/10?workers=4
+###
+GET {{host}}/cpu/sequential/4
+###
+GET {{host}}/cpu/threaded/4
+###
+GET {{host}}/race

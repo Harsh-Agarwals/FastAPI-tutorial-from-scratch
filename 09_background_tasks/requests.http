@@ -1,0 +1,17 @@
+@host = http://localhost:8000
+
+### Submit a job (BackgroundTasks)
+# @name job
+POST {{host}}/jobs
+Content-Type: application/json
+
+{"text": "some long article that we will pretend to summarize", "delay_s": 2}
+
+### Poll the job
+GET {{host}}/jobs/{{job.response.body.job_id}}
+
+### Submit using create_task (fires immediately)
+POST {{host}}/jobs/now
+Content-Type: application/json
+
+{"text": "another doc", "delay_s": 1}

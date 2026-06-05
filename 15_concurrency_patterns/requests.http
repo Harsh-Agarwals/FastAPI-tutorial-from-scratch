@@ -1,0 +1,11 @@
+@host = http://localhost:8000
+
+GET {{host}}/fanout/20
+###
+GET {{host}}/pool/20?workers=5
+###
+GET {{host}}/pipeline/20
+###
+GET {{host}}/bulkhead
+###
+GET {{host}}/batched/100?batch=10

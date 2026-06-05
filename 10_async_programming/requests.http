@@ -1,0 +1,19 @@
+@host = http://localhost:8000
+
+### Trivial sleeper used by the demos
+GET {{host}}/sleep/200
+
+### 5 calls sequentially (~1000ms+)
+GET {{host}}/seq
+
+### 5 calls concurrently (~200ms)
+GET {{host}}/concurrent
+
+### Sync handler -> threadpool
+GET {{host}}/threadpool-sync
+
+### DANGEROUS — freezes loop for 1 second
+GET {{host}}/blocking-sleep
+
+### Offloaded blocking work — loop stays responsive
+GET {{host}}/offload/500

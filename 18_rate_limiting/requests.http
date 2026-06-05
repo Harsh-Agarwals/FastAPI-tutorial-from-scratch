@@ -1,0 +1,7 @@
+@host = http://localhost:8000
+
+GET {{host}}/in-memory
+###
+GET {{host}}/redis-limited
+###
+GET {{host}}/slowapi-limited

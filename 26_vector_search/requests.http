@@ -1,0 +1,17 @@
+@host = http://localhost:8000
+
+POST {{host}}/index/items
+Content-Type: application/json
+
+{"items": [
+  {"text": "FastAPI is great for APIs.", "tags": ["python","web"]},
+  {"text": "Async code does not block.", "tags": ["python","async"]},
+  {"text": "Pasta with tomato sauce.", "tags": ["food"]}
+]}
+
+###
+GET {{host}}/search?q=event loop&k=2
+###
+GET {{host}}/search-filter?q=python&tag=web
+###
+GET {{host}}/stats

@@ -1,0 +1,5 @@
+@host = http://localhost:8000
+
+GET {{host}}/who
+###
+POST {{host}}/count

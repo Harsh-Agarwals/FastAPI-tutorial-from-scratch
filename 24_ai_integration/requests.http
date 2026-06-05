@@ -1,0 +1,16 @@
+@host = http://localhost:8000
+
+POST {{host}}/summarize
+Content-Type: application/json
+
+{"text": "long document goes here. lots of words. many sentences.", "style": "bullet"}
+
+###
+POST {{host}}/summarize-batch
+Content-Type: application/json
+
+[
+  {"text": "doc 1"},
+  {"text": "doc 2"},
+  {"text": "doc 3"}
+]

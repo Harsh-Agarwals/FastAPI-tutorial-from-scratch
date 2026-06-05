@@ -1,0 +1,15 @@
+@host = http://localhost:8000
+
+POST {{host}}/embed
+Content-Type: application/json
+
+{"texts": ["hello world", "goodbye sun"]}
+
+###
+POST {{host}}/similarity
+Content-Type: application/json
+
+{"a": "cats are cute", "b": "kittens are adorable"}
+
+###
+GET {{host}}/nearest?q=event loop&k=3

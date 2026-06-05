@@ -1,0 +1,8 @@
+@host = http://localhost:8000
+
+### Basic — watch the response headers
+GET {{host}}/
+X-Request-ID: my-custom-id-123
+
+### Slow endpoint — bigger X-Process-Time-ms
+GET {{host}}/slow

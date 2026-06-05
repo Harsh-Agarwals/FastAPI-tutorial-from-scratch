@@ -1,0 +1,4 @@
+# WebSocket cannot be tested with plain HTTP files.
+# Use the in-browser client at http://localhost:8000/ or wscat:
+#   wscat -c ws://localhost:8000/ws/chat
+#   wscat -c ws://localhost:8000/ws/room

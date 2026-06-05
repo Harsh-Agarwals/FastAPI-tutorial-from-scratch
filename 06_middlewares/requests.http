@@ -1,0 +1,18 @@
+@host = http://localhost:8000
+
+### Small response — gzip won't kick in (below minimum_size)
+GET {{host}}/
+Accept-Encoding: gzip
+
+### Big response — gzip will compress
+GET {{host}}/big
+Accept-Encoding: gzip
+
+### Same big response, uncompressed
+GET {{host}}/big
+Accept-Encoding: identity
+
+### CORS preflight from an allowed origin
+OPTIONS {{host}}/
+Origin: http://localhost:3000
+Access-Control-Request-Method: POST

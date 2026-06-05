@@ -1,0 +1,2 @@
+# Multipart uploads: use curl or notebook.
+#   curl -F "file=@./sample.pdf;type=application/pdf" http://localhost:8000/summarize-pdf

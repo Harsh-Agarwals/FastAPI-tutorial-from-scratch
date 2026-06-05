@@ -1,0 +1,13 @@
+@host = http://localhost:8000
+
+GET {{host}}/gather/10
+###
+GET {{host}}/semaphore/10
+###
+GET {{host}}/queue/12
+###
+GET {{host}}/timeout/100
+###
+GET {{host}}/timeout/700
+###
+GET {{host}}/cancel-demo

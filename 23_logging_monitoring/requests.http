@@ -1,0 +1,11 @@
+@host = http://localhost:8000
+
+GET {{host}}/healthz
+###
+GET {{host}}/readyz
+###
+GET {{host}}/work?slow_ms=200
+###
+GET {{host}}/boom
+###
+GET {{host}}/metrics

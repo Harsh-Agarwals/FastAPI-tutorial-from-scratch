@@ -1,0 +1,31 @@
+@host = http://localhost:8000
+
+### Successful transfer
+POST {{host}}/transfer
+Content-Type: application/json
+
+{"from_account": "acc-1", "to_account": "acc-2", "amount": 10}
+
+### Domain error — insufficient balance (422)
+POST {{host}}/transfer
+Content-Type: application/json
+
+{"from_account": "acc-1", "to_account": "acc-2", "amount": 9999}
+
+### Domain error — account not found (404)
+POST {{host}}/transfer
+Content-Type: application/json
+
+{"from_account": "acc-x", "to_account": "acc-2", "amount": 1}
+
+### Validation error (422)
+POST {{host}}/transfer
+Content-Type: application/json
+
+{"from_account": "", "to_account": "acc-2", "amount": -10}
+
+### Unhandled exception (500)
+GET {{host}}/boom
+
+### HTTPException-driven (418)
+GET {{host}}/teapot

@@ -1,0 +1,9 @@
+@host = http://localhost:8000
+
+GET {{host}}/lru/7
+###
+GET {{host}}/memcache?q=hello world
+###
+GET {{host}}/redis-cache?q=hello world
+###
+GET {{host}}/single-flight?q=same

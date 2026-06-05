@@ -1,0 +1,2 @@
+# Multipart uploads are awkward in .http files; use curl or the notebook:
+#   curl -F "file=@./sample.pdf;type=application/pdf" http://localhost:8000/parse

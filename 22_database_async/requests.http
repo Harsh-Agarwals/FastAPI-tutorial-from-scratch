@@ -1,0 +1,13 @@
+@host = http://localhost:8000
+
+POST {{host}}/notes
+Content-Type: application/json
+
+{"title": "first note", "body": "hello world"}
+
+###
+GET {{host}}/notes
+###
+GET {{host}}/notes/1
+###
+DELETE {{host}}/notes/1

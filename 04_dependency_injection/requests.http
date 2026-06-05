@@ -1,0 +1,24 @@
+@host = http://localhost:8000
+
+### Items with pagination defaults
+GET {{host}}/items
+
+### Items with explicit pagination
+GET {{host}}/items?limit=5&offset=10
+
+### Search with tags
+GET {{host}}/search?q=laptop&tag=apple&tag=m3
+
+### 401 — missing api key
+GET {{host}}/secret
+
+### 200 — with api key
+GET {{host}}/secret
+X-API-Key: secret-key
+
+### admin router — 401 without key
+GET {{host}}/admin/stats
+
+### admin router — 200 with key
+GET {{host}}/admin/stats
+X-API-Key: secret-key

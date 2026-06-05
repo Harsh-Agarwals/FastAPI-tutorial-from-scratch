@@ -1,0 +1,7 @@
+@host = http://localhost:8000
+
+GET {{host}}/benchmark/io?n=8
+###
+GET {{host}}/benchmark/cpu?n=8
+###
+GET {{host}}/benchmark/pdf?n=8

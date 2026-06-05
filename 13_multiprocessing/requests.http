@@ -1,0 +1,7 @@
+@host = http://localhost:8000
+
+GET {{host}}/cpu/sequential/4
+###
+GET {{host}}/cpu/processes/4
+###
+GET {{host}}/cpu/processes/8

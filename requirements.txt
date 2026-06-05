@@ -1,0 +1,65 @@
+# ============================================================
+# Global requirements for the entire FastAPI + AI learning lab.
+# Pinned to a narrow band so chapters are reproducible.
+# Python 3.11+ recommended.
+# ============================================================
+
+# --- Core web framework ---
+fastapi>=0.110,<1.0
+uvicorn[standard]>=0.27,<1.0
+python-multipart>=0.0.9          # file uploads / form data
+
+# --- Data validation ---
+pydantic>=2.6,<3.0
+pydantic-settings>=2.2,<3.0
+email-validator>=2.1,<3.0
+
+# --- Async HTTP / IO ---
+httpx>=0.27,<1.0
+aiofiles>=23.2,<25.0
+
+# --- Auth (Chapter 05) ---
+passlib[bcrypt]>=1.7,<2.0
+python-jose[cryptography]>=3.3,<4.0
+
+# --- Templates / static (used in a few chapters) ---
+jinja2>=3.1,<4.0
+
+# --- Database (Chapter 22) ---
+sqlalchemy>=2.0,<3.0
+aiosqlite>=0.19,<1.0             # async sqlite driver
+# asyncpg>=0.29,<1.0             # uncomment if you want Postgres
+
+# --- Redis / queues (Chapters 18-21) ---
+redis>=5.0,<6.0                  # redis.asyncio is included
+
+# --- Rate limiting helper (Chapter 18) ---
+slowapi>=0.1.9,<1.0
+
+# --- AI integration (Chapter 24) ---
+# We default to mockable clients so you can learn without spending money.
+# Uncomment the providers you actually want to use.
+# openai>=1.20,<2.0
+# tiktoken>=0.6,<1.0
+tenacity>=8.2,<10.0              # retries with backoff
+
+# --- PDF processing (Chapter 27) ---
+pypdf>=4.1,<6.0
+
+# --- Vector search (Chapters 25-26) ---
+numpy>=1.26,<3.0
+# faiss-cpu>=1.7,<2.0            # optional, harder to install on M-series
+
+# --- Logging / observability (Chapter 23) ---
+structlog>=24.1,<26.0
+
+# --- Notebooks ---
+jupyter>=1.0,<2.0
+ipykernel>=6.29,<7.0
+matplotlib>=3.8,<4.0
+pandas>=2.2,<3.0
+
+# --- Dev / testing ---
+pytest>=8.0,<9.0
+pytest-asyncio>=0.23,<2.0
+anyio>=4.3,<5.0

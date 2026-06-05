@@ -1,0 +1,18 @@
+@host = http://localhost:8000
+
+POST {{host}}/string/hello?value=world&ttl=5
+###
+GET {{host}}/string/hello
+###
+POST {{host}}/counter/pageviews
+###
+POST {{host}}/hash/user:42
+Content-Type: application/json
+
+{"name": "Ada", "plan": "pro"}
+###
+GET {{host}}/hash/user:42
+###
+POST {{host}}/zadd/leaderboard?member=alice&score=50
+###
+GET {{host}}/ztop/leaderboard

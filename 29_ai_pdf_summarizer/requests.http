@@ -1,0 +1,10 @@
+# Use curl for the multipart upload, then HTTP for the rest:
+#   curl -s -X POST -F "file=@./sample.pdf;type=application/pdf" http://localhost:8000/upload
+
+@host = http://localhost:8000
+
+### enqueue (replace file_id)
+POST {{host}}/summarize/FILE_ID_HERE
+
+### poll
+GET {{host}}/jobs/JOB_ID_HERE
